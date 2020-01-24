@@ -4,14 +4,18 @@
 # read your file
 lab=read.csv("Binge_Drinking.csv")
 
-
 # change "1/2" to "Male/Female"
 lab$gender = gsub(1, "Male",lab$gender)
 lab$gender = gsub(2, "Female",lab$gender)
 
-#Six rows in our binge drinking dataset have a NA for gender
-#Sort by gender and then look at the last few rows to see
+#
+###########################################################
+#Six rows in our bingedrinking dataset have a NA for gender
+#Sort by gender and then look at the last few rows (the tail) to see
 #the NA values in the gender column:
+###########################################################
+#
+
 print(tail(lab[order(lab$gender),], n=10))
 
 #and six rows have a NA age value:
@@ -49,10 +53,11 @@ sum(is.na(female$gender))
 sum(is.na(male_with_NA_excluded$gender))
 sum(is.na(female_with_NA_excluded$gender))
 
+
 #And you can remove entire rows that have any NAs in them with this:
 labs_with_no_NA_anywhere <- na.omit(lab)
 sum(is.na(labs_with_no_NA_anywhere$gender))
-print(labs_with_no_NA_anywhere)
+##print(labs_with_no_NA_anywhere)
 
 
 
