@@ -1,6 +1,9 @@
 #R. Dale Johnson
 #Module 2 Homework - binge drinking data set
 
+##### NAs in the index column discusssion: 
+#Source: https://stackoverflow.com/questions/14261619/subsetting-r-data-frame-results-in-mysterious-na-rows
+
 bingeDrinking <- read.csv(file="Binge_Drinking.csv"), header=TRUE, sep=",")
 
 bingeDrinking
