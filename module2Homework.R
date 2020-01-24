@@ -41,6 +41,13 @@ sum(is.na(bingeDrinking$age))
 
 sum(is.na(bingeDrinking$gender))
 
+#http://uc-r.github.io/missing_values
+#https://stackoverflow.com/questions/48658832/how-to-remove-row-if-it-has-a-na-value-in-one-certain-column
+
+bingeWithNoNAGender <- na.omit(bingeDrinking$gender)
+
+bingeWithNoNAGender
+
 #######################################
 # NAs, subsetting, and the other values in the rows becomgin NAs:
 # source: https://www.r-bloggers.com/subsetting-in-the-presence-of-nas/

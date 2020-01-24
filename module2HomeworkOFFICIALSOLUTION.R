@@ -16,8 +16,11 @@ lab$gender = gsub(1, "Male",lab$gender)
 lab$gender = gsub(2, "Female",lab$gender)
 
 # subset a dataset only contains male
-male=lab[lab$gender=="Male",]
-female=lab[lab$gender=="Female",]
+male_with_NA_excluded <- lab[lab$gender=="Male" & !is.na(lab$gender), ]
+male <- lab[lab$gender=="Male", ]
+
+female <- lab[lab$gender=="Female" , ]
+female_with_NA_excluded <- lab[lab$gender=="Female" & !is.na(lab$gender),]
 
 sum(is.na(male$age))
 
@@ -35,6 +38,12 @@ hist(male$age)
 
 summary(female$age)
 hist(female$age)
+
+summary(male_with_NA_excluded$age)
+hist(male_with_NA_excluded$age)
+
+summary(female_with_NA_excluded$age)
+hist(female_with_NA_excluded$age)
 
 # Recode the continuous variable, Age, into three groups:  < 20 years; 20-25 years; and >25 years
 age_in_year= ifelse(lab$age<=19,1,
