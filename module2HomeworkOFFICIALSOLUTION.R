@@ -19,6 +19,15 @@ lab$gender = gsub(2, "Female",lab$gender)
 male=lab[lab$gender=="Male",]
 female=lab[lab$gender=="Female",]
 
+sum(is.na(male$age))
+
+sum(is.na(female$age))
+
+sum(is.na(lab$age))
+
+sum(is.na(lab$gender))
+
+
 summary(lab$age)
 
 summary(male$age)
