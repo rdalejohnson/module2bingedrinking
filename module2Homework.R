@@ -40,7 +40,8 @@ sum(is.na(femalesOnly$age))
 
 sum(is.na(bingeDrinking$age))
 
-
+########### SUBSETTING #####################################
+# Source, by Wickham: http://adv-r.had.co.nz/Subsetting.html
 
 
 ############### Frequency distribution #################
