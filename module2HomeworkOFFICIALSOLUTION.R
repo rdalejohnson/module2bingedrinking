@@ -1,6 +1,16 @@
 # title: "BST 611 SAS Lab for  Regression "
 # author: "BST 611"
 
+#SOURCES:
+#NAs in the index column discusssion: https://stackoverflow.com/questions/14261619/subsetting-r-data-frame-results-in-mysterious-na-rows
+#Using split to subset: https://stackoverflow.com/a/19327079/3500818
+#NA counting: https://stackoverflow.com/a/24027625/3500818
+#Remove any row containing an NA: http://uc-r.github.io/missing_values
+#Using isNA: https://stackoverflow.com/questions/48658832/how-to-remove-row-if-it-has-a-na-value-in-one-certain-column
+#NAs, subsetting, and the other values in the rows becomgin NAs:https://www.r-bloggers.com/subsetting-in-the-presence-of-nas/
+#General discussion on subsetting: http://adv-r.had.co.nz/Subsetting.html
+
+
 # read your file
 lab=read.csv("Binge_Drinking.csv")
 
@@ -40,7 +50,7 @@ print(tail(female[order(female$gender),], n=10))
 #And since both subsets "claim" the NA rows, the total number of rows in 
 #the two subsets exceeds the number of rows in the original data set:
 
-#gets you number of rows only, which is 1400
+#gets you the total number of rows, which is 1400
 #
 print(nrow(lab))  
 
@@ -56,8 +66,8 @@ print(nrow(male) + nrow(female))
 
 # So, to subset a dataset and get ONLY the rows with gender= male 
 # and to truly omit the NAs, 
-# add  an extra condition: !is.na(lab$gender)
-# which mean 'and the gender value in the row is NOT NA'
+# add an extra condition: !is.na(lab$gender)
+# which means 'and the gender value in the row is NOT NA'
 
 #Sorting after that you can see the NA rows are gone from the tail
 #
@@ -93,7 +103,7 @@ summary(male$age)
 summary(female$age)
 
 ##########
-## using the extra explicity NA exclusions
+## using the extra explicit NA exclusions
 ##########
 #
 summary(male_with_NA_excluded$age)
