@@ -132,3 +132,25 @@ summary(female$age)
 summary(female_with_NA_excluded$age)
 summary(femalesOnlyusingSplit$age)
 
+
+
+
+#######################################
+#######################################
+#######################################
+#######################################
+#######################################
+#######################################
+
+summary(malesOnlyusingSplit$age)
+summary(femalesOnlyusingSplit$age)
+
+#sources for using CUT: 
+#   https://www.r-bloggers.com/from-continuous-to-categorical/
+#   https://www.r-bloggers.com/r-function-of-the-day-cut-2/
+#   https://youtu.be/EWs1Ordh8nI
+#intervals will be closed on the RIGHT and open on the LEFT by default
+#to switch the default closed interval to be the left one, add parameter “right=FALSE”
+#to the cut invocation.
+
+lab$agecategories<-cut(lab$age, breaks=c(0,20,26,200), labels=c("Less than 20 Years Old", "20 to 25 Years Old", "Over 25 Years Old"), right=FALSE) 
