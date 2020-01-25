@@ -157,12 +157,18 @@ hist(femalesOnlyusingSplit$age)
 #   https://www.r-bloggers.com/from-continuous-to-categorical/
 #   https://www.r-bloggers.com/r-function-of-the-day-cut-2/
 #   https://youtu.be/EWs1Ordh8nI
+#   https://stackoverflow.com/questions/12245149/cut-include-lowest-values
+#   https://stackoverflow.com/questions/40380112/categorize-continuous-variable-with-dplyr#40380312
 #intervals will be closed on the RIGHT and open on the LEFT by default
 #to switch the default closed interval to be the left one, add parameter “right=FALSE”
 #to the cut invocation.
+#Can use +Inf and -Inf in breaks list
 
 #
-lab$agecategories<-cut(lab$age, breaks=c(0,20,26,+Inf), labels=c("Less than 20 Years Old", "20 to 25 Years Old", "Over 25 Years Old"), right=FALSE) 
+lab$agecategories<-cut(lab$age, 
+                       breaks=c(-Inf,20,26,+Inf), 
+                       labels=c("Less than 20 Years Old", "20 to 25 Years Old", "Over 25 Years Old"), right=FALSE) 
+
 summary(lab$agecategories)
 #
 #
