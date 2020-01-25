@@ -142,8 +142,16 @@ summary(femalesOnlyusingSplit$age)
 #######################################
 #######################################
 
+library(ggplot2)
+
+
 summary(malesOnlyusingSplit$age)
+hist(malesOnlyusingSplit$age)
+
+
 summary(femalesOnlyusingSplit$age)
+hist(femalesOnlyusingSplit$age)
+
 
 #sources for using CUT: 
 #   https://www.r-bloggers.com/from-continuous-to-categorical/
@@ -156,3 +164,26 @@ summary(femalesOnlyusingSplit$age)
 lab$agecategories<-cut(lab$age, breaks=c(0,20,26,200), labels=c("Less than 20 Years Old", "20 to 25 Years Old", "Over 25 Years Old"), right=FALSE) 
 
 summary(lab$agecategories)
+
+
+
+############## PLOTTING ################3
+
+# Figure
+lab$drinks5 = gsub(1, "None",lab$drinks5)
+lab$drinks5 = gsub(2, "Once",lab$drinks5)
+lab$drinks5 = gsub(3, "Twice",lab$drinks5)
+lab$drinks5 = gsub(4, "three to five",lab$drinks5)
+lab$drinks5 = gsub(5, "six to nine",lab$drinks5)
+lab$drinks5 = gsub(6, "more than ten",lab$drinks5)
+
+# give x label a order, otherwise it will show in alphabet
+x.order=c("None","Once", "Twice","three to five","six to nine","more than ten")
+lab$drinks5 = factor(lab$drinks5, levels=unique(x.order))
+
+figure=cbind(lab[,c(1,2,6)])
+figure.delete=na.omit(figure)
+
+plot(ggplot(figure.delete, aes(x=drinks5,y=age,color=gender,group=gender)) + 
+       geom_smooth(method="loess",se=F) +
+       labs(x="# Binge Drinking Episodes",y="Age (years)",title="Age and Binge Drinking by Gender"))
