@@ -161,9 +161,12 @@ hist(femalesOnlyusingSplit$age)
 #to switch the default closed interval to be the left one, add parameter “right=FALSE”
 #to the cut invocation.
 
+#
 lab$agecategories<-cut(lab$age, breaks=c(0,20,26,200), labels=c("Less than 20 Years Old", "20 to 25 Years Old", "Over 25 Years Old"), right=FALSE) 
-
 summary(lab$agecategories)
+#
+#
+
 
 
 
