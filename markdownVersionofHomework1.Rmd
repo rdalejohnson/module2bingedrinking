@@ -1,3 +1,12 @@
+---
+title: "JOHNSON_BST611_HW1_Dale"
+author: "R. Dale Johnson"
+date: "1/25/2020"
+output: pdf_document
+---
+
+```{r , include=FALSE, warning = FALSE}
+
 # title: "BST 611 SAS Lab for  Regression "
 # author: "BST 611"
 
@@ -133,6 +142,9 @@ summary(female_with_NA_excluded$age)
 summary(femalesOnlyusingSplit$age)
 
 
+```
+
+```{r , echo=FALSE, warning = FALSE}
 
 
 #######################################
@@ -143,11 +155,21 @@ summary(femalesOnlyusingSplit$age)
 #######################################
 
 library(ggplot2)
+```
 
+## Frequency Distribution of Males by Age
+
+```{r , echo=FALSE, warning = FALSE}
 
 summary(malesOnlyusingSplit$age)
 hist(malesOnlyusingSplit$age)
 
+```
+\pagebreak
+
+## Frequency Distribution of Females by Age
+
+```{r , echo=FALSE, warning = FALSE}
 
 summary(femalesOnlyusingSplit$age)
 hist(femalesOnlyusingSplit$age)
@@ -161,12 +183,16 @@ hist(femalesOnlyusingSplit$age)
 #to switch the default closed interval to be the left one, add parameter “right=FALSE”
 #to the cut invocation.
 
-#
-lab$agecategories<-cut(lab$age, breaks=c(0,20,26,+Inf), labels=c("Less than 20 Years Old", "20 to 25 Years Old", "Over 25 Years Old"), right=FALSE) 
-summary(lab$agecategories)
-#
-#
+```
+\pagebreak
 
+## Frequency distribution after recoding AGE into three categories
+
+```{r , echo=FALSE, warning = FALSE}
+
+lab$agecategories<-cut(lab$age, breaks=c(0,20,26,+Inf), labels=c("Less than 20 Years Old", "20 to 25 Years Old", "Over 25 Years Old"), right=FALSE) 
+
+summary(lab$agecategories)
 
 
 
@@ -187,6 +213,17 @@ lab$drinks5 = factor(lab$drinks5, levels=unique(x.order))
 figure=cbind(lab[,c(1,2,6)])
 figure.delete=na.omit(figure)
 
+```
+\pagebreak
+
+## Graph of the relationship between AGE and Binge Drinking by Gender, with "Drink5" mapped to a small set of categories
+
+```{r , echo=FALSE, warning = FALSE}
+
 plot(ggplot(figure.delete, aes(x=drinks5,y=age,color=gender,group=gender)) + 
        geom_smooth(method="loess",se=F) +
        labs(x="# Binge Drinking Episodes",y="Age (years)",title="Age and Binge Drinking by Gender"))
+
+```
+
+
